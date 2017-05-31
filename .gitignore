@@ -1,0 +1,9 @@
+node_modules
+.idea
+topaz
+paas
+sqldiff
+sqlite*
+
+corazonChecker.sh
+update-topaz.sh
