@@ -1,5 +1,6 @@
 .idea
 .scratch
+yahoo
 
 node_modules
 topaz
@@ -7,5 +8,4 @@ paas
 sqldiff
 sqlite*
 
-corazonChecker.sh
-update-topaz.sh
+_tmp.js
