@@ -1,5 +1,7 @@
-node_modules
 .idea
+.scratch
+
+node_modules
 topaz
 paas
 sqldiff
