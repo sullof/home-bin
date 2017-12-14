@@ -10,3 +10,5 @@ sqlite*
 
 _tmp.js
 corazonChecker.sh
+gloves-sync.sh
+hsync.sh
