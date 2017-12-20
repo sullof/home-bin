@@ -1,14 +1,6 @@
 .idea
 .scratch
-yahoo
-
 node_modules
-topaz
-paas
-sqldiff
-sqlite*
-
 _tmp.js
-corazonChecker.sh
 gloves-sync.sh
 hsync.sh
