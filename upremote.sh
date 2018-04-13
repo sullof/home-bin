@@ -2,6 +2,6 @@
 
 if [[ -n $1 ]]; then
 	repo=$(git config --get remote.origin.url | sed -e 's/:[a-zA-Z0-9]*/:'$1'/')
-	git remote set-url origin $repo
+	echo "git remote set-url origin $repo"
 fi
 
