@@ -2,5 +2,5 @@
 
 for var in "$@"
 do
-    ../sh/deleteRemoteAndLocalBranch.sh $var
+    deleteRemoteAndLocalBranch.sh $var
 done

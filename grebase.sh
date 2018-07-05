@@ -32,6 +32,10 @@ if [[ -z $1 ]];then
 	exit
 fi
 
+if [[ ! -z $3 ]];then
+	count=$3
+fi
+
 git reset --soft HEAD~$count
 git commit -m "$1"
 
