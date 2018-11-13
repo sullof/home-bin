@@ -4,13 +4,13 @@
 # If the current branch is master a few commands do nothing.
 
 function merge {
-	branch=$(git rev-parse --abbrev-ref HEAD)
+#	branch=$(git rev-parse --abbrev-ref HEAD)
 	git fetch upstream
 	git checkout master
 	git merge upstream/master
-	git push origin master
-	git checkout $branch
-	git merge master
+#	git push origin master
+#	git checkout $branch
+#	git merge master
 }
 
 function add {
