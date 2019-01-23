@@ -1,0 +1,1 @@
+ssh -i ~/.ssh/eventron-singapore.pem "ec2-user@"$1
