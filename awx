@@ -1,1 +1,1 @@
-ssh -i ~/.ssh/eventron.pem "ec2-user@"$1
+ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem "ec2-user@"$1

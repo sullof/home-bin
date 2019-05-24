@@ -7,3 +7,4 @@ elif [[ $2 = "" ]];then
 else
 	git fetch $1 pull/$2/head:pr/$2 && git checkout pr/$2
 fi
+

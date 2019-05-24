@@ -1,0 +1,22 @@
+{
+	"name": "home-bin",
+	"version": "1.0.0",
+	"description": "This contains scripts that I put in ~/bin in order to execute recurrent tasks.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sullof/home-bin.git"
+	},
+	"author": "Francesco Sullo <francesco@sullo.co>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/sullof/home-bin/issues"
+	},
+	"homepage": "https://github.com/sullof/home-bin#readme",
+	"engines": {
+		"node": ">=8.0.0"
+	}
+}
