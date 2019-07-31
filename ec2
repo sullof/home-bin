@@ -1,0 +1,17 @@
+
+profileName=oregon
+
+if [[ $1 == "S"* ]]; then
+	profileName=singapore
+elif [[ $1 == "F"* ]]; then
+  	profileName=frankfurt
+fi
+
+ip=$(aws ec2  --profile $profileName describe-instances --filter Name=tag:Name,Values=$1 | grep PublicIpAddress | sed 's/.*: "\([^"]*\).*/\1/')
+
+if [[ "$ip" != "" ]]; then
+	echo "Ssh-ing $ip"
+	ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem ec2-user@$ip
+else
+	echo "Instance not found."
+fi
