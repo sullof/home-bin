@@ -10,7 +10,7 @@ elif [[ "$NAME" == "F"* ]]; then
 	PROFILE=frankfurt
 fi
 
-while getopts "sfk:n:" opt; do
+while getopts "k:p:" opt; do
   case $opt in
     p)
       PROFILE=$OPTARG
