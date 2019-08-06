@@ -1,17 +1,39 @@
+#!/usr/bin/env bash
 
-profileName=oregon
+KEY=~/.ssh/eventron.pem
+NAME=$1
+PROFILE=oregon
 
-if [[ $1 == "S"* ]]; then
-	profileName=singapore
-elif [[ $1 == "F"* ]]; then
-  	profileName=frankfurt
+if [[ "$NAME" == "S"* ]]; then
+	PROFILE=singapore
+elif [[ "$NAME" == "F"* ]]; then
+	PROFILE=frankfurt
 fi
 
-ip=$(aws ec2  --profile $profileName describe-instances --filter Name=tag:Name,Values=$1 | grep PublicIpAddress | sed 's/.*: "\([^"]*\).*/\1/')
+while getopts "sfk:n:" opt; do
+  case $opt in
+    p)
+      PROFILE=$OPTARG
+      ;;
+    k)
+      KEY=$OPTARG
+      ;;
+    \?)
+      echo "
+ERROR: Invalid option. Syntax:
 
-if [[ "$ip" != "" ]]; then
-	echo "Ssh-ing $ip"
-	ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem ec2-user@$ip
+   ec2 instance-name [options]
+"
+      exit 1
+      ;;
+  esac
+done
+
+IP=$(aws ec2  --profile $PROFILE describe-instances --filter Name=tag:Name,Values=$NAME | grep PublicIpAddress | sed 's/.*: "\([^"]*\).*/\1/')
+
+if [[ "$IP" != "" ]]; then
+	echo "Ssh-ing $IP"
+	ssh -oStrictHostKeyChecking=no -i $KEY ec2-user@$IP
 else
 	echo "Instance not found."
 fi
