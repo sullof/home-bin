@@ -37,4 +37,6 @@ done
 			yarn
 		fi
 	fi
+        
+        idea .
 )
