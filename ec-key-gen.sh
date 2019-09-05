@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# If you don't have done yet, install sha3sum. On Mac:
+#    brew install sha3sum
 
 # Generate the private and public keys
 openssl ecparam -name secp256k1 -genkey -noout |
@@ -15,6 +17,3 @@ cat Key | grep priv -A 3 | tail -n +2 |
 
 # Generate the hash and take the address part
 cat pub | keccak-256sum -x -l | tr -d ' -' | tail -c 41 > address
-
-
-0x1109df36c597b6fe69cc8487140bfff09146276b52ed4719ff4f79533475acf3666fbc9cda62438efb508afc28bbe041f0d110c79b1a9c8d11c0f1982e2174ac1b
