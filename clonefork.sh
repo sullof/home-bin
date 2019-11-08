@@ -1,6 +1,18 @@
 #!/bin/bash
 
-while getopts "or:u:" opt; do
+help () {
+  echo "
+ERROR: Invalid option.
+
+Accepted options:
+    -r [repo name]
+    -u [upstream user name] (optional)
+Example:
+    clonefork.sh -r truffle -u trufflesuite
+"
+}
+
+while getopts "r:u:" opt; do
   case $opt in
     r)
       REPO=$OPTARG
@@ -9,19 +21,16 @@ while getopts "or:u:" opt; do
       UPSTREAM=$OPTARG
       ;;
     \?)
-      echo "
-ERROR: Invalid option.
-
-Accepted options:
-    -r [repo name]
-    -u [upstream user name]
-Example:
-    clonefork.sh -r truffle -u trufflesuite
-"
+      help
       exit 1
       ;;
   esac
 done
+
+if [[ "$REPO" == "" ]]; then
+  help
+  exit 1
+fi
 
 (
 	cd ~/Projects/Forks
@@ -37,6 +46,4 @@ done
 			yarn
 		fi
 	fi
-        
-        idea .
 )

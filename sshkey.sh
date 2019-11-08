@@ -22,3 +22,5 @@ if [[ "$FILENAME" != "" ]]; then
 else
 	ssh-keygen -o -a 100 -t ed25519 -C "$EMAIL"
 fi
+
+ssh-keygen -t ed25519 -b 256 -C devtools@tron.network

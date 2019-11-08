@@ -1,1 +1,2 @@
-ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem "ec2-user@"$1
+#!/usr/bin/env bash
+ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem ec2-user@$1
