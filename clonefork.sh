@@ -40,10 +40,10 @@ fi
 		mergeUpstream.sh $UPSTREAM
 	fi
 	if [[ -f "package.json" ]]; then
-		if [[ -f "package-lock.json" ]]; then
-			npm i
-		else
+		if [[ -f "yarn.lock" ]]; then
 			yarn
+		else
+			npm i
 		fi
 	fi
 )
