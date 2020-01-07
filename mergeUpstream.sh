@@ -1,29 +1,44 @@
 #!/bin/bash
 
-# This update master with the upstream master and merge master with the current branch.
-# If the current branch is master a few commands do nothing.
+help () {
+  echo "
+ERROR: Invalid option.
+
+Accepted options:
+    -u [upstream organization]    (accepted only if the upstream is not set)
+Example:
+    mergeUpstream.sh
+    mergeUpstream.sh -u someorg
+"
+}
+
+while getopts "u:" opt; do
+  case $opt in
+    u)
+      upstreamUrl=$OPTARG
+      ;;
+    \?)
+      help
+      exit 1
+      ;;
+  esac
+done
 
 function merge {
-#	branch=$(git rev-parse --abbrev-ref HEAD)
+	branch=$(git rev-parse --abbrev-ref HEAD)
 	git fetch upstream
-	git checkout master
-	git merge upstream/master
-#	git push origin master
-#	git checkout $branch
-#	git merge master
+	git merge upstream/$branch
 }
 
-function add {
-	git remote add upstream $1
-}
-
-if [[ -n $1 ]]; then
-	repo=$(git config --get remote.origin.url | sed -e 's/:[a-zA-Z0-9]*/:'$1'/')
-	add $repo
+if [[ $upstreamUrl != "" ]]; then
+	repo=$(git config --get remote.origin.url | sed -e 's/:[a-zA-Z0-9]*/:'$upstreamUrl'/')
+	git remote add upstream $repo
 else
 	upstream=`git remote -v | grep upstream`
 	if [[ -n $upstream ]]; then
-		merge
+		branch=$(git rev-parse --abbrev-ref HEAD)
+		git fetch upstream
+		git merge upstream/$branch
 	else
 		echo 'No upstream is configured'
 	fi
