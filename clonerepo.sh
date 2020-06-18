@@ -1,28 +1,5 @@
 #!/bin/bash
 
-USER=$1
-REPO=$2
-if [[ "$REPO" == "" ]]; then
-  REPO=$1
-  USER=sullof
-fi
-
-(
-	cd ~/Projects/Repos
-	git clone git@github.com:$USER/$REPO.git
-	cd $REPO
-	if [[ -f "package.json" ]]; then
-		if [[ -f "package-lock.json" ]]; then
-			npm i
-		else
-			yarn
-		fi
-	fi
-)
-
-
-#!/bin/bash
-
 help () {
   echo "
 ERROR: Invalid option.
@@ -35,23 +12,35 @@ Example:
 "
 }
 
-ORG=sullof
-
-while getopts "r:o:" opt; do
-  case $opt in
-    r)
-      REPO=$OPTARG
-      ;;
-    o)
-      ORG=$OPTARG
-      ;;
-    \?)
-      help
-      exit 1
-      ;;
-  esac
+text=$1
+IFS='/'
+read -a strarr <<< "$text"
+for val in "${strarr[@]}";
+do
+  if [[ "$ORG" == "" ]]; then
+  	ORG=$val
+  else
+  	REPO=$val
+  fi
 done
 
+if [[ "$REPO" == "" || "$ORG" == "" ]]; then
+	ORG=sullof
+	while getopts "r:o:" opt; do
+	  case $opt in
+		r)
+		  REPO=$OPTARG
+		  ;;
+		o)
+		  ORG=$OPTARG
+		  ;;
+		\?)
+		  help
+		  exit 1
+		  ;;
+	  esac
+	done
+fi
 if [[ "$REPO" == "" ]]; then
   help
   exit 1

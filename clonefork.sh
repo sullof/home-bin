@@ -9,23 +9,38 @@ Accepted options:
     -u [upstream user name] (optional)
 Example:
     clonefork.sh -r truffle -u trufflesuite
+    clonefork.sh trufflesuite/truffle
 "
 }
 
-while getopts "r:u:" opt; do
-  case $opt in
-    r)
-      REPO=$OPTARG
-      ;;
-    u)
-      UPSTREAM=$OPTARG
-      ;;
-    \?)
-      help
-      exit 1
-      ;;
-  esac
+text=$1
+IFS='/'
+read -a strarr <<< "$text"
+for val in "${strarr[@]}";
+do
+  if [[ "$UPSTREAM" == "" ]]; then
+  	UPSTREAM=$val
+  else
+  	REPO=$val
+  fi
 done
+
+if [[ "$REPO" == "" || "$UPSTREAM" == "" ]]; then
+	while getopts "r:u:" opt; do
+	  case $opt in
+		r)
+		  REPO=$OPTARG
+		  ;;
+		u)
+		  UPSTREAM=$OPTARG
+		  ;;
+		\?)
+		  help
+		  exit 1
+		  ;;
+	  esac
+	done
+fi
 
 if [[ "$REPO" == "" ]]; then
   help

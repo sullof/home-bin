@@ -6,4 +6,4 @@ else
     file=$1.dec
 fi
 
-openssl enc -aes-256-cbc  -d -in $1 -out $file
+openssl enc -aes-256-cbc -md md5 -d -in $1 -out $file
