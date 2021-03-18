@@ -29,3 +29,4 @@ for (let i = 0;i< branches.length;i++) {
 for (let branch of branches) {
 	cmdExec(`git branch -D ${branch} && git push origin --delete ${branch}`)
 }
+

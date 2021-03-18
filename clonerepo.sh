@@ -53,6 +53,8 @@ fi
 	if [[ -f "package.json" ]]; then
 		if [[ -f "yarn.lock" ]]; then
 			yarn
+		elif [[ -f "pnpm-lock.yaml" ]]; then
+			pnpm i
 		else
 			npm i
 		fi
