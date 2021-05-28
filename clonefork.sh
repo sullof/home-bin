@@ -63,4 +63,7 @@ fi
 			npm i
 		fi
 	fi
+
+	echo "~/Projects/Forks/$REPO" | clipboard
+
 )

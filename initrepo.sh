@@ -1,14 +1,15 @@
 #!/bin/bash
 
+
 help () {
   echo "
 ERROR: Invalid option.
 
 Accepted options:
-    -r [repo name]
     -o [organization] (optional)
+    -r [repo name]
 Example:
-    clonerepo.sh -r truffle -o trufflesuite
+    initrepo.sh -r dapp -o tweedentity
 "
 }
 
@@ -47,18 +48,14 @@ if [[ "$REPO" == "" ]]; then
 fi
 
 (
-	cd ~/Projects/Repos
-	git clone git@github.com:$ORG/$REPO.git
-	cd $REPO
-	if [[ -f "package.json" ]]; then
-		if [[ -f "yarn.lock" ]]; then
-			yarn
-		elif [[ -f "pnpm-lock.yaml" ]]; then
-			pnpm i
-		else
-			npm i
-		fi
-	fi
+	cd ~/Projects/Personal/$REPO
+	git init
+	git add -A
+	git commit -m "first commit"
+	git branch -M master
+	git remote add origin git@github.com:$ORG/$REPO.git
+	git push -u origin master
 
 	echo "~/Projects/Repos/$REPO" | clipboard
+	echo "$REPO initialized"
 )
