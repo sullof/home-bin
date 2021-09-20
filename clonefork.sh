@@ -64,6 +64,10 @@ fi
 		fi
 	fi
 
-	echo "~/Projects/Forks/$REPO" | clipboard
-
+	CB=$(which clipboard)
+    	if [[ "$CB" == "" ]]; then
+    		echo "~/Projects/Forks/$REPO" | pbcopy
+    	else
+    		echo "~/Projects/Forks/$REPO" | clipboard
+    	fi
 )
