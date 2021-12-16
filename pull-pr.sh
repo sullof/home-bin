@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git fetch origin pull/7/head:$1
-git checkout $1
+git fetch origin pull/$1/head:$2
+git checkout $2
