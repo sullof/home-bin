@@ -13,6 +13,7 @@ function cmdExec(what) {
 
 const blackList = [
 	"master",
+	"main"
 	"dev",
 	"staging"
 ]

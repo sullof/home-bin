@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const {execSync} = require('child_process')
+const _ = require('lodash')
 
 function cmdExec(what) {
 	try {
@@ -11,10 +12,14 @@ function cmdExec(what) {
 	}
 }
 
+const currentBranch = _.trim(execSync(`git rev-parse --abbrev-ref HEAD`).toString())
+
 const blackList = [
 	"master",
+	"main",
 	"dev",
-	"staging"
+	"staging",
+	currentBranch
 ]
 
 const branches = cmdExec('git --no-pager branch')
