@@ -15,5 +15,15 @@ function rename(dir, find, sub) {
 
 [,,dir,find,sub] = process.argv;
 
-rename(dir, find, sub)
+if (!dir || !find || !sub) {
+	console.log(`ERROR: Parameters missed
 
+Examples:
+
+  batch-rename somedir/images _Icon_ _
+  batch-rename . someName Name
+
+	`)
+} else {
+	rename(dir, find, sub)
+}
