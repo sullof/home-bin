@@ -18,6 +18,9 @@ function rename(dir, find, sub) {
 if (!dir || !find || !sub) {
 	console.log(`ERROR: Parameters missed
 
+Usage:
+  batch-rename folder pattern replacingPattern
+
 Examples:
 
   batch-rename somedir/images _Icon_ _
