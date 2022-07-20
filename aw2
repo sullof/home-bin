@@ -1,1 +1,0 @@
-ssh -oStrictHostKeyChecking=no -i ~/.ssh/trongrid.pem "ec2-user@"$1

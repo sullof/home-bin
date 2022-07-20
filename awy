@@ -1,1 +1,0 @@
-ssh -oStrictHostKeyChecking=no -i ~/.ssh/tron-protocol-aws.pem "ec2-user@"$1

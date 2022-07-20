@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ssh -oStrictHostKeyChecking=no -i ~/.ssh/eventron.pem ec2-user@$1
+ssh -i ~/.ssh/$1.pem ubuntu@ec2-$2.us-east-2.compute.amazonaws.com
