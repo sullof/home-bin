@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-ssh -oStrictHostKeyChecking=no -i ~/.ssh/ec_rsa ec2-user@$1

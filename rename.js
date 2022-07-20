@@ -19,12 +19,12 @@ if (!dir || !find || !sub) {
 	console.log(`ERROR: Parameters missed
 
 Usage:
-  batch-rename folder pattern replacingPattern
+  rename folder pattern replacingPattern
 
 Examples:
 
-  batch-rename somedir/images _Icon_ _
-  batch-rename . someName Name
+  rename somedir/images _Icon_ _
+  rename . someName Name
 
 	`)
 } else {
