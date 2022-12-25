@@ -2,7 +2,7 @@
 
 branch=$(echo "$1" | perl -ne 'print lc')
 
-if [ "$branch" == "master" || "$branch" == "main"]
+if [[ "$branch" == "master" || "$branch" == "main"]]
 then
 	echo "You cannot delete the master/main branch."
 else
