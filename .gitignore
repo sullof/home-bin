@@ -7,3 +7,4 @@ hsync.sh
 mom
 /trondev
 /tronbuilt
+.ssh*
