@@ -20,6 +20,8 @@
 		"node": ">=8.0.0"
 	},
 	"dependencies": {
+		"clipboardy": "^3.0.0",
+		"esm": "^3.2.25",
 		"fs-extra": "^9.1.0",
 		"lodash": "^4.17.21"
 	}
