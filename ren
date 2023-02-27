@@ -1,0 +1,25 @@
+#!/bin/bash
+
+EXT=$1
+PREFIX=$2
+XEXT=$3
+
+shopt -s dotglob
+
+if [ "$XEXT" == "" ]; then
+	echo ${file%}
+    for file in $PREFIX*; do
+      if [[ ! "$file" =~ \. ]] && [ ! -f "$file".* ]; then
+        mv "$file" "$file.$EXT"
+      fi
+    done
+
+else
+	for file in $PREFIX*.$XEXT; do
+      if [ -f "$file" ]; then
+        mv "$file" "${file%.$XEXT}.$EXT"
+      fi
+	done
+fi
+
+echo "Done"
