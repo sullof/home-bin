@@ -6,6 +6,7 @@ if [[ "$branch" == "master" || "$branch" == "main"]]
 then
 	echo "You cannot delete the master/main branch."
 else
+	echo "Deleting branch $branch"
 	git branch -D $1
 	git push origin --delete $1
 fi
