@@ -14,18 +14,18 @@ function pbcopy(data) {
 	proc.stdin.write(data); proc.stdin.end();
 }
 
-async function recursivelyFindSubdirectoryPath(root, subdirectory) {
+async function recursivelyFindSubdirectoryPath(root, subdirectory, level) {
 	const dir = await fs.readdir(root);
 	for (let i = 0; i < dir.length; i++) {
 		const dirpath = path.join(root, dir[i]);
 		if ((await fs.lstat(dirpath)).isDirectory()) {
-			let isIdeaProject = await fs.pathExists(path.join(dirpath, ".idea"));
+			let isIdeaProject = level > 1 ? await fs.pathExists(path.join(dirpath, ".idea")) : false;
 			if (isIdeaProject) {
 				if (dir[i] === subdirectory) {
 					return dirpath;
 				}
 			} else {
-				const result = await recursivelyFindSubdirectoryPath(dirpath, subdirectory);
+				const result = await recursivelyFindSubdirectoryPath(dirpath, subdirectory, level + 1);
 				if (result) {
 					return result;
 				}
@@ -37,7 +37,7 @@ async function recursivelyFindSubdirectoryPath(root, subdirectory) {
 async function main() {
 	// it search in the projects folder
 	const projectsPath = path.resolve(__dirname, '../Projects');
-	const dirPath = await recursivelyFindSubdirectoryPath(projectsPath, project)
+	const dirPath = await recursivelyFindSubdirectoryPath(projectsPath, project, 1)
 	console.log("dirPath", dirPath);
 	if (dirPath) {
 		pbcopy(`(cd ${dirPath} && idea .)`)
