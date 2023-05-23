@@ -20,6 +20,7 @@
 		"node": ">=8.0.0"
 	},
 	"dependencies": {
+		"case": "^1.6.3",
 		"clipboardy": "^3.0.0",
 		"esm": "^3.2.25",
 		"fs-extra": "^9.1.0",
