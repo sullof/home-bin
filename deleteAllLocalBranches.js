@@ -21,6 +21,7 @@ const whiteList = [
 	"main",
 	"dev",
 	"staging",
+	"stage",
 	currentBranch
 ].concat(wl)
 

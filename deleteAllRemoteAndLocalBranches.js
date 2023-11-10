@@ -17,7 +17,8 @@ const whiteList = [
 	"master",
 	"main",
 	"dev",
-	"staging"
+	"staging",
+	"stage"
 ].concat(wl)
 
 const branches = cmdExec('git --no-pager branch')
