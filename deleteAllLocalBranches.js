@@ -20,6 +20,7 @@ const whiteList = [
 	"master",
 	"main",
 	"dev",
+	"debug",
 	"staging",
 	"stage",
 	currentBranch
