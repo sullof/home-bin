@@ -9,7 +9,11 @@ dependencies:
     specifier: ^1.6.3
     version: 1.6.3
   chalk:
+<<<<<<< HEAD
     specifier: '4'
+=======
+    specifier: ^4.1.2
+>>>>>>> 7a3ccb81d8a87f98200703ceed54027110cb2279
     version: 4.1.2
   clipboardy:
     specifier: ^3.0.0
@@ -27,8 +31,13 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   moment:
+<<<<<<< HEAD
     specifier: ^2.29.4
     version: 2.29.4
+=======
+    specifier: ^2.30.1
+    version: 2.30.1
+>>>>>>> 7a3ccb81d8a87f98200703ceed54027110cb2279
 
 packages:
 
@@ -115,9 +124,9 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       at-least-node: 1.0.0
-      graceful-fs: 4.2.9
+      graceful-fs: 4.2.11
       jsonfile: 6.1.0
-      universalify: 2.0.0
+      universalify: 2.0.1
     dev: false
 
   /get-stream@6.0.1:
@@ -125,8 +134,13 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+<<<<<<< HEAD
   /graceful-fs@4.2.9:
     resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==}
+=======
+  /graceful-fs@4.2.11:
+    resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+>>>>>>> 7a3ccb81d8a87f98200703ceed54027110cb2279
     dev: false
 
   /has-flag@4.0.0:
@@ -168,9 +182,9 @@ packages:
   /jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
     dependencies:
-      universalify: 2.0.0
+      universalify: 2.0.1
     optionalDependencies:
-      graceful-fs: 4.2.9
+      graceful-fs: 4.2.11
     dev: false
 
   /lodash@4.17.21:
@@ -186,8 +200,13 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+<<<<<<< HEAD
   /moment@2.29.4:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+=======
+  /moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+>>>>>>> 7a3ccb81d8a87f98200703ceed54027110cb2279
     dev: false
 
   /npm-run-path@4.0.1:
@@ -237,8 +256,13 @@ packages:
       has-flag: 4.0.0
     dev: false
 
+<<<<<<< HEAD
   /universalify@2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+=======
+  /universalify@2.0.1:
+    resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
+>>>>>>> 7a3ccb81d8a87f98200703ceed54027110cb2279
     engines: {node: '>= 10.0.0'}
     dev: false
 
