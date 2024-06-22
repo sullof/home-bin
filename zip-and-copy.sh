@@ -1,39 +1,28 @@
 #!/bin/bash
 
-# Destination directory for the compressed folders
-DESTINATION_DIR="$1"
+# Define the destination path on the removable drive
+DESTINATION=$1
 
-START_FROM="$2"
-
-if [ "$DESTINATION_DIR" == "" ]; then
-	echo "Destination directory not specified. Exiting..."
-	exit 1
+# Check if the destination exists
+if [ ! -d "$DESTINATION" ]; then
+  mkdir -p "$DESTINATION"
 fi
 
-if [ ! -d "$DESTINATION_DIR" ]; then
-    mkdir -p "$DESTINATION_DIR"
-fi
+# Loop through each folder in the current directory
+for dir in */; do
+  # Remove trailing slash from directory name
+  dir=${dir%/}
 
-STARTED=
-if [ "$START_FROM" == "" ]; then
-	STARTED=1
-fi
+  # Create a gzip archive of the folder
+  tar -czf "${dir}.tar.gz" "$dir"
 
-for DIR in */; do
-    if [ -d "${DIR}" ]; then
-        # Remove trailing slash
-        DIR_NAME=$(basename "${DIR}")
+  # Transfer the archive to the destination
+  mv "${dir}.tar.gz" "$DESTINATION"
 
-		if [ "$STARTED" == "" ]; then
-			if [ "$DIR_NAME" == "$START_FROM" ]; then
-				STARTED=1
-			else
-				continue
-			fi
-		fi
-		echo "Zipping $DIR_NAME..."
-        tar -czf "$DESTINATION_DIR/${DIR_NAME}.tar.gz" "${DIR_NAME}"
-    fi
+  # Verify if the transfer was successful
+  if [ $? -eq 0 ]; then
+    echo "Successfully transferred ${dir}.tar.gz to $DESTINATION"
+  else
+    echo "Failed to transfer ${dir}.tar.gz"
+  fi
 done
-
-echo "Compression and copying completed."
