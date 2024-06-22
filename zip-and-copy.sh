@@ -14,6 +14,7 @@ for dir in */; do
   dir=${dir%/}
 
   # Create a gzip archive of the folder
+  echo "tar -czf ${dir}.tar.gz$dir"
   tar -czf "${dir}.tar.gz" "$dir"
 
   # Transfer the archive to the destination
