@@ -9,3 +9,6 @@ mom
 /tronbuilt
 .s*
 _*
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
